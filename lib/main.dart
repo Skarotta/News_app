@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/confige/application_theme_manger.dart';
-import 'package:news_app/core/confige/page_route_name.dart';
-import 'package:news_app/core/confige/routes.dart';
+import 'package:news_app/core/config/application_theme_manager.dart';
+import 'package:news_app/core/config/pages_route_name.dart';
+import 'package:news_app/core/config/routes.dart';
 
-GlobalKey<NavigatorState> navigatorkey =  GlobalKey<NavigatorState>();
+GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() {
   runApp(const MyApp());
 }
@@ -15,15 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ApplicationThemeManager.applicationThemeData,
+      title: 'News Application',
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
-      initialRoute: PageRouteName.initial,
-      onGenerateRoute: Routes.onGenerateRoutes,
-      navigatorKey: navigatorkey,
-
+      theme: ApplicationThemeManager.applicationThemeData,
+      initialRoute: PagesRouteName.initial,
+      onGenerateRoute: Routes.onGenerateRoute,
     );
   }
 }
-
